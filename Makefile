@@ -8,10 +8,10 @@ INCLUDE= -isystem deps/seqan3/include
 HEADERS= include/mer.hpp include/util.hpp include/seq.hpp
 
 count: count.cpp $(SEQAN) $(HEADERS)
-	g++ -Ofast $(CFLAGS) $(INCLUDE) -fopenmp count.cpp -o count -lz
+	g++ -Ofast $(CFLAGS) $(INCLUDE) -fopenmp count.cpp -o count -lz -DSEQAN3_HAS_BZIP2=0
 
 debug_count: count.cpp $(SEQAN) $(HEADERS)
-	g++ -g -fanalyzer $(CFLAGS) $(INCLUDE) count.cpp -o debug_count -lz
+	g++ -g -fanalyzer $(CFLAGS) $(INCLUDE) count.cpp -o debug_count -lz -DSEQAN3_HAS_BZIP2=0
 
 $(SEQAN): 
 	git submodule update --init
