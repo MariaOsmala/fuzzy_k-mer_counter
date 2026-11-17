@@ -47,6 +47,7 @@
 *.app
 count
 debug_count
+fkm_count
 
 # Build directories
 build/
