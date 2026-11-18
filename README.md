@@ -41,7 +41,7 @@ Will count the given mers from `ex_seq/BARHL2_TCCAGT40NGAC_AI_1.fastq` and `ex_s
 
 ## Building
 
-Requires a modern C++ compiler (tested with GCC) and `zlib`.
+Requires a modern C++ compiler (tested with GCC) along with `zlib` and `OpenMP`.
 
 ### Conda
 
@@ -56,7 +56,15 @@ cmake --build build --parallel
 ./build/fkm_count -h
 ```
 
-### GNU Make
+### Straight cmake
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel
+./build/fkm_count -h
+```
+
+### GNU Make (probably only on linux)
 
 ```bash
 make count
